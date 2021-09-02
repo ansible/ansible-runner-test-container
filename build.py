@@ -11,7 +11,6 @@ def download_files():
     if reqs_path.exists():
         for file in reqs_path.glob('*.txt'):
             file.unlink()
-        # reqs_path.rmdir()
 
     reqs_path.mkdir(exist_ok=True)
 

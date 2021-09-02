@@ -24,4 +24,4 @@ jobs:
       - name: Build image
         run: |
           python3.9 build.py
-          docker image ls
+          docker image ls quay.io/ansible/ansible-runner-test-container

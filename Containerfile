@@ -12,7 +12,8 @@ RUN apt-get update -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN curl --silent --show-error --output /usr/local/bin/codecov https://ansible-ci-files.s3.us-east-1.amazonaws.com/codecov/linux/codecov \
-    && chmod +x /usr/local/bin/codecov
+    && curl --silent --show-error  --output /usr/local/bin/docker https://ansible-ci-files.s3.us-east-1.amazonaws.com/distro-test-container-files/docker \
+    && bash -c "chmod +x /usr/local/bin/{codecov,docker}"
 
 COPY requirements/*.txt /tmp/
 RUN python3.9 -m pip install tox -c /tmp/constraints.txt \
